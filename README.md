@@ -10,9 +10,10 @@ This project processes a raw video of a train from a side view to perform the fo
 
 ## Files and Directory Structure
 -   `raw_video.mp4`: The input video file.
--   `video_processor.py`: The main script handling video splitting, frame extraction, and component detection.
+-   `main.py`: The primary script that orchestrates the entire workflow.
+-   `video_processor.py`: Contains the core logic for video splitting, frame extraction, and component detection.
+-   `detector.py`: A utility file containing the object detection model.
 -   `report_generator.py`: Script to compile the final PDF report.
--   `detector.py`: A utility file containing the object detection logic using a pre-trained YOLO model.
 -   `Processed_Video/`: The output directory, structured as follows:
     -   `12309_1/`
         -   `12309_1.mp4`
@@ -24,29 +25,24 @@ This project processes a raw video of a train from a side view to perform the fo
 ## How to Set Up and Run the Project
 1.  **Clone the repository:**
     ```bash
-    git clone <your-github-repo-link>
-    cd <your-project-name>
+    git clone https://github.com/itsamanmanik/Train-Video-Processor.git
+    cd <Your-Repo-Name>
     ```
 2.  **Place the input video:**
-    -   Download the `raw_video.mp4` file and place it in the root directory.
+    -   Download the `raw_video.mp4` file and place it in the project's root directory.
 3.  **Install dependencies:**
     -   Ensure you have Python installed. Then, install the required libraries using pip:
     ```bash
     pip install opencv-python numpy ultralytics reportlab
     ```
-4.  **Run the analysis:**
-    -   Execute the main processing script. This will create the `Processed_Video` directory and its contents.
+4.  **Run the entire pipeline:**
+    -   Execute the `main.py` script. This single command will run the entire process, from video processing to report generation.
     ```bash
-    python video_processor.py
-    ```
-5.  **Generate the report:**
-    -   Run the report generator script to create the final PDF.
-    ```bash
-    python report_generator.py
+    python main.py
     ```
 
 ## Key Features Implemented
--   **Modular Code:** The project is broken down into logical files (`video_processor.py`, `detector.py`, `report_generator.py`) for clarity and maintainability.
+-   **Modular Code:** The project is broken down into logical files (`main.py`, `video_processor.py`, `detector.py`, `report_generator.py`) for clarity and maintainability.
 -   **Structured Output:** All processed files are organized into a logical folder structure as requested.
 -   **Automated Reporting:** A comprehensive PDF report is automatically generated, including a summary and visual evidence for each coach.
 
